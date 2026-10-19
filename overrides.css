@@ -1,0 +1,9 @@
+.demo-map { transform: scale(var(--map-zoom, 1)); transform-origin: center; transition: transform .25s ease; }
+.zoom-controls { position: absolute; z-index: 4; top: 7rem; right: clamp(1rem, 3vw, 2rem); display: grid; box-shadow: 0 10px 25px #24332823; }
+.zoom-controls button { width: 2.5rem; height: 2.5rem; border: 0; border-bottom: 1px solid var(--line); background: var(--paper); font-size: 1.25rem; }
+.zoom-controls button:last-child { border-bottom: 0; }
+.museum-logo { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; color: white; background: var(--ink); font: 700 .55rem/1 "DM Mono", monospace; letter-spacing: -.08em; }
+.museum-logo.moma { background: #2f4775; }
+.museum-logo.amnh { background: var(--moss); font-size: .48rem; }
+.menu-footer { grid-template-columns: 1fr; }
+.menu-footer button:last-child { grid-column: auto; border-top: 1px solid var(--line); }
