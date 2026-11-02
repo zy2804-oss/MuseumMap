@@ -9,6 +9,11 @@ const menu = document.querySelector('#menu'), detail = document.querySelector('#
 const map = L.map('map', {zoomControl:false, attributionControl:true}).setView([40.7735, -73.9705], 14);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'© OpenStreetMap contributors'}).addTo(map);
 
+// Leaflet measures its container when it starts. Recheck after the page layout
+// is ready so tiles always fill the available map area.
+window.addEventListener('load', () => map.invalidateSize());
+window.addEventListener('resize', () => map.invalidateSize());
+
 const markerIcon = L.divIcon({className:'museum-pin', html:'<span>●</span>', iconSize:[28,28], iconAnchor:[14,28]});
 museums.forEach(m => L.marker(m.coords, {icon:markerIcon, title:m.name}).addTo(map).on('click', () => openDetail(m.id)));
 
